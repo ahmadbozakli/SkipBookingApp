@@ -16,9 +16,9 @@ interface SkipContainer3DProps {
 }
 
 const MODEL_PATHS = {
-  small: "/src/models/4Y.glb",
-  medium: "/models/skip-6y.glb",
-  large: "/models/skip-8y.glb",
+  small: "/models/4Y.glb",
+  medium: "/models/4Y.glb",
+  large: "/models/4Y.glb",
 } as const
 
 function getModelPath(skipSize: number): string {
