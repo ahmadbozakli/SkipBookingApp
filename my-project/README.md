@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
+# Skip Booking App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based skip booking application that supports interactive 3D model previews. The app is fully containerized using Docker for both development and production environments.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## Expanding the ESLint configuration
+-  Real-time 3D skip previews using `<model-viewer>`
+-  Dark mode support
+-  Fully responsive across all screen sizes
+-  Docker-ready for local dev and production
+-  Built with Vite for fast performance
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+##  Docker Setup
+
+###  Production Mode
+
+Runs the production-ready build served via Nginx.
+
+```bash
+docker-compose up
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Visit: [http://localhost:3000](http://localhost:3000)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+###  Development Mode
+
+Runs the app in development mode with hot-reloading.
+
+```bash
+docker-compose --profile dev up
 ```
+
+Visit: [http://localhost:3001](http://localhost:3001)
+
+---
+
+##  Project Structure
+
+```
+.
+├── public/              # Static files (3D models, favicon, etc.)
+├── src/                 # App source code (React + TSX)
+├── Dockerfile           # Production build config
+├── Dockerfile.dev       # Dev environment with hot reload
+├── docker-compose.yml   # Multi-service Docker setup
+├── nginx.conf           # Nginx config for production
+└── README.md
+```
+
+---
+
+##  Tech Stack
+
+- React 19
+- TypeScript
+- Tailwind CSS
+- Vite
+- model-viewer (3D)
+- Docker + Docker Compose
+- Nginx (for prod)
+
+---
+
+##  Packaging & Sharing
+
+###  Include:
+
+- Source code (`src/`, `public/`)
+- Docker files:
+  - `Dockerfile`, `Dockerfile.dev`
+  - `docker-compose.yml`
+  - `nginx.conf`
+- 3D models in `/src/models/`
+- Any build or utility scripts
+
+---
